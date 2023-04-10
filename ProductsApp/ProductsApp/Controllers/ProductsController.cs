@@ -12,14 +12,14 @@ namespace ProductsApp.Controllers
     {
         Product[] products = new Product[]
         {
-            new Product { Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1 },
-            new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
-            new Product { Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M }
+            new Product { Id = 1, Name = "Ketchup", Category = "Condiments", Price = 4 },
+            new Product { Id = 2, Name = "Rubix Cube", Category = "Puzzles", Price = 20 },
+            new Product { Id = 3, Name = "Laptop", Category = "Devices", Price = 600 }
         };
 
-        public ProductsController(Product[] products)
+        public ProductsController(): base()
         {
-            this.products = products;
+
         }
 
         public IEnumerable<Product> GetAllProducts()
@@ -27,7 +27,6 @@ namespace ProductsApp.Controllers
             return products;
         }
     
-
         public IHttpActionResult GetProduct(int id)
         {
             var product = products.FirstOrDefault((p) => p.Id == id);
@@ -37,6 +36,9 @@ namespace ProductsApp.Controllers
             }
             return Ok(product);
         }
+
     }
+
+
     
 }
